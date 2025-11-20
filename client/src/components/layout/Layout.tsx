@@ -18,7 +18,7 @@ export const Layout = () => {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <Link to="/list" className={styles.logo}>
-              <img src="src/assets/logo.ico" alt="Avito Tech Logo" className={styles.logoImage} />
+              <img src="../../../public/logo.ico" alt="Avito Tech Logo" className={styles.logoImage} />
             <h1 className={styles.logoText}>Avito Tech</h1>
           </Link>
 

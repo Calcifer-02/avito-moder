@@ -233,6 +233,7 @@
 /* Основной контент */
 .main {
   min-height: 400px;
+    padding-left: 32px;
 }
 
 .info {

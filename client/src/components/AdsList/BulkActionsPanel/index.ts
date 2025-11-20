@@ -1,0 +1,2 @@
+export { BulkActionsPanel } from './BulkActionsPanel';
+

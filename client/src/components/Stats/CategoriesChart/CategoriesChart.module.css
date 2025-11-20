@@ -1,0 +1,94 @@
+.chartCard {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px var(--shadow-sm);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  animation: fadeInChart 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInChart {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.chartCard:nth-child(1) { animation-delay: 0.7s; }
+.chartCard:nth-child(2) { animation-delay: 0.85s; }
+.chartCard:nth-child(3) { animation-delay: 1s; }
+
+.chartCardFull {
+  grid-column: 1 / -1;
+}
+
+.chartCard h3 {
+  margin: 0 0 24px 0;
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+.categoryChart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.categoryBar {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.categoryLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.categoryBarContainer {
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  height: 32px;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.categoryBarFill {
+  height: 100%;
+  background: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 12px;
+  transition: width 0.5s ease;
+  border-radius: 8px;
+}
+
+.categoryBarValue {
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .categoryBar {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .categoryLabel {
+    text-align: left;
+  }
+}
+

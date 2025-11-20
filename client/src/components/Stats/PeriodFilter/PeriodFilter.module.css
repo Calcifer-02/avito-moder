@@ -1,0 +1,138 @@
+.filter {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px var(--shadow-sm);
+  margin-bottom: 24px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.periodTabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.periodTab {
+  padding: 12px 24px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.periodTab:hover {
+  background: var(--bg-tertiary);
+}
+
+.periodTab.active {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.exportButtons {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.exportBtn,
+.exportBtnPdf {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.exportBtn {
+  background: var(--success);
+  color: white;
+}
+
+.exportBtn:hover:not(:disabled) {
+  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-md);
+}
+
+.exportBtnPdf {
+  background: var(--danger);
+  color: white;
+}
+
+.exportBtnPdf:hover:not(:disabled) {
+  background: #da190b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-md);
+}
+
+.exportBtn:disabled,
+.exportBtnPdf:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.customRange {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+.dateInput {
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all 0.2s;
+}
+
+.dateInput:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+@media (max-width: 768px) {
+  .periodTabs {
+    flex-direction: column;
+  }
+
+  .periodTab {
+    width: 100%;
+    text-align: center;
+  }
+
+  .customRange {
+    flex-direction: column;
+  }
+}
+

@@ -1,6 +1,7 @@
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import type { StatsSummary, ActivityData, DecisionsData, CategoriesData } from '@/types';
+import { PTSansRegularBase64 } from '@/assets/fonts/PTSans-Regular-base64';
 
 /**
  * Экспорт статистики в CSV с правильным форматированием
@@ -127,19 +128,24 @@ export const exportToPDF = (
     compress: true
   });
 
+  // Регистрируем шрифт PT Sans для поддержки кириллицы
+  doc.addFileToVFS('PTSans-Regular.ttf', PTSansRegularBase64);
+  doc.addFont('PTSans-Regular.ttf', 'PTSans', 'normal');
+  doc.setFont('PTSans');
+
   let yPosition = 20;
 
   // Заголовок
   doc.setFontSize(20);
   doc.setTextColor(40, 40, 40);
-  doc.setFont('helvetica', 'bold');
+  doc.setFont('PTSans', 'normal');
   doc.text('Статистика модератора', 105, yPosition, { align: 'center' });
   yPosition += 10;
 
   // Период
   doc.setFontSize(12);
   doc.setTextColor(100, 100, 100);
-  doc.setFont('helvetica', 'normal');
+  doc.setFont('PTSans', 'normal');
   doc.text(`Период: ${getPeriodLabel(period)}`, 105, yPosition, { align: 'center' });
   yPosition += 5;
 
@@ -150,7 +156,7 @@ export const exportToPDF = (
   // Общая статистика
   doc.setFontSize(14);
   doc.setTextColor(40, 40, 40);
-  doc.setFont('helvetica', 'bold');
+  doc.setFont('PTSans', 'normal');
   doc.text('Общая статистика', 14, yPosition);
   yPosition += 5;
 
@@ -173,7 +179,7 @@ export const exportToPDF = (
     headStyles: {
       fillColor: [0, 170, 255],
       fontSize: 11,
-      fontStyle: 'bold',
+      fontStyle: 'normal',
       halign: 'left'
     },
     bodyStyles: {
@@ -184,7 +190,7 @@ export const exportToPDF = (
     },
     margin: { left: 14, right: 14 },
     styles: {
-      font: 'helvetica',
+      font: 'PTSans',
       cellPadding: 4
     }
   });
@@ -199,7 +205,7 @@ export const exportToPDF = (
     }
 
     doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont('PTSans', 'normal');
     doc.text('График активности по дням', 14, yPosition);
     yPosition += 5;
 
@@ -237,7 +243,7 @@ export const exportToPDF = (
       headStyles: {
         fillColor: [0, 170, 255],
         fontSize: 10,
-        fontStyle: 'bold'
+        fontStyle: 'normal'
       },
       bodyStyles: {
         fontSize: 9
@@ -247,16 +253,16 @@ export const exportToPDF = (
         1: { halign: 'center', cellWidth: 25 },
         2: { halign: 'center', cellWidth: 25 },
         3: { halign: 'center', cellWidth: 30 },
-        4: { halign: 'center', fontStyle: 'bold', cellWidth: 25 }
+        4: { halign: 'center', fontStyle: 'normal', cellWidth: 25 }
       },
       margin: { left: 14, right: 14 },
       styles: {
-        font: 'helvetica'
+        font: 'PTSans'
       },
       didParseCell: (data) => {
         // Выделяем итоговую строку
         if (data.row.index === activityTableData.length - 1 && data.section === 'body') {
-          data.cell.styles.fontStyle = 'bold';
+          data.cell.styles.fontStyle = 'normal';
           data.cell.styles.fillColor = [240, 240, 240];
         }
       }
@@ -273,7 +279,7 @@ export const exportToPDF = (
     }
 
     doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont('PTSans', 'normal');
     doc.text('Распределение решений', 14, yPosition);
     yPosition += 5;
 
@@ -291,18 +297,18 @@ export const exportToPDF = (
       headStyles: {
         fillColor: [0, 170, 255],
         fontSize: 11,
-        fontStyle: 'bold'
+        fontStyle: 'normal'
       },
       bodyStyles: {
         fontSize: 10
       },
       columnStyles: {
-        1: { halign: 'center', fontStyle: 'bold' },
+        1: { halign: 'center', fontStyle: 'normal' },
         2: { halign: 'center', cellWidth: 15 }
       },
       margin: { left: 14, right: 14 },
       styles: {
-        font: 'helvetica'
+        font: 'PTSans'
       }
     });
 
@@ -317,7 +323,7 @@ export const exportToPDF = (
     }
 
     doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont('PTSans', 'normal');
     doc.text('Проверено по категориям', 14, yPosition);
     yPosition += 5;
 
@@ -341,7 +347,7 @@ export const exportToPDF = (
       headStyles: {
         fillColor: [0, 170, 255],
         fontSize: 10,
-        fontStyle: 'bold'
+        fontStyle: 'normal'
       },
       bodyStyles: {
         fontSize: 9
@@ -355,12 +361,12 @@ export const exportToPDF = (
       },
       margin: { left: 14, right: 14 },
       styles: {
-        font: 'helvetica'
+        font: 'PTSans'
       },
       didParseCell: (data) => {
         // Выделяем итоговую строку
         if (data.row.index === categoriesTableData.length - 1 && data.section === 'body') {
-          data.cell.styles.fontStyle = 'bold';
+          data.cell.styles.fontStyle = 'normal';
           data.cell.styles.fillColor = [0, 170, 255];
           data.cell.styles.textColor = [255, 255, 255];
         }
@@ -374,7 +380,7 @@ export const exportToPDF = (
     doc.setPage(i);
     doc.setFontSize(9);
     doc.setTextColor(150, 150, 150);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont('PTSans', 'normal');
 
     // Линия перед футером
     const pageHeight = doc.internal.pageSize.height;

@@ -1,0 +1,2 @@
+export { CategoriesChart } from './CategoriesChart';
+

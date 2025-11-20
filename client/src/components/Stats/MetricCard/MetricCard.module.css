@@ -1,0 +1,84 @@
+.card {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px var(--shadow-sm);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  transition: all 0.3s;
+  border-left: 4px solid;
+  animation: fadeInStatsCard 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInStatsCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Задержка анимации для карточек статистики */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px var(--shadow-lg);
+}
+
+.cardPrimary { border-color: #0AF; }
+.cardSuccess { border-color: #4CAF50; }
+.cardDanger { border-color: #F44336; }
+.cardWarning { border-color: #FF9800; }
+.cardInfo { border-color: #2196F3; }
+.cardSecondary { border-color: #9E9E9E; }
+
+.cardIcon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.cardLabel {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.cardValue {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.cardMeta {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .cardIcon {
+    font-size: 28px;
+  }
+
+  .cardValue {
+    font-size: 24px;
+  }
+}
+
