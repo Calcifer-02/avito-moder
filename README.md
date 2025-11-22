@@ -113,7 +113,7 @@
 ```bash
 # Клонировать репозиторий
 git clone https://github.com/Calcifer-02/avito-moder.git
-cd avito-int3
+cd avito-moder
 
 # Запустить все сервисы в Docker
 docker-compose up -d --build
@@ -166,7 +166,7 @@ make help                # Справка
 ### Установка и запуск
 ```bash
 git clone https://github.com/Calcifer-02/avito-moder.git
-cd avito-int3
+cd  avito-moder
 ```
 
 ### 2. Установка зависимостей
@@ -205,7 +205,7 @@ Frontend будет доступен на `http://localhost:3000`
 ## Структура проекта
 
 ```
-avito-int3/
+avito-moder/
 ├── docker-compose.yml         # Docker orchestration (production)
 ├── docker-compose.dev.yml     # Docker development mode
 ├── Makefile                   # Make commands для управления

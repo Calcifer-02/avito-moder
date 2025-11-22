@@ -4,7 +4,7 @@
 
 ```bash
 # 1. Перейти в папку проекта
-cd avito-int3
+cd avito-moder
 
 # 2. Собрать и запустить
 docker-compose up -d --build

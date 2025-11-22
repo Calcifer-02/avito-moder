@@ -15,7 +15,7 @@
 
 ```bash
 git clone https://github.com/Calcifer-02/avito-moder.git
-cd avito-int3
+cd avito-moder
 ```
 
 ### 2. Запуск приложения
@@ -36,7 +36,7 @@ docker-compose up -d --build
 ## Структура Docker
 
 ```
-avito-int3/
+avito-moder/
 ├── docker-compose.yml              # Оркестрация контейнеров
 ├── client/                         # Frontend
 │   ├── Dockerfile                  # Multi-stage build для React
