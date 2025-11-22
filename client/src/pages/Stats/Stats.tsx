@@ -69,7 +69,7 @@ export const Stats = () => {
       <HeroSection
         title="Статистика модератора"
         subtitle="Аналитика работы и эффективности модерации"
-        imageSrc="public/Layer.svg"
+        imageSrc="/Layer.svg"
       />
 
       {/* Основной контент */}

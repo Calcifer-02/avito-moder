@@ -13,7 +13,7 @@ const apiClient: AxiosInstance = axios.create({
 
 // Интерсептор для обработки ошибок
 apiClient.interceptors.response.use(
-    (response) => response,
+    (response: any) => response,
     (error: AxiosError) => {
         console.error('API Error:', error.response?.data || error.message);
         return Promise.reject(error);

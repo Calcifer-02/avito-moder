@@ -52,6 +52,8 @@ export const useApproveAd = () => {
       queryClient.invalidateQueries({ queryKey: adsKeys.lists() });
       // Обновляем кеш конкретного объявления
       queryClient.setQueryData(adsKeys.detail(data.ad.id), data.ad);
+      // Инвалидируем статистику для немедленного обновления
+      queryClient.invalidateQueries({ queryKey: ['stats'] });
     },
   });
 };
@@ -68,6 +70,8 @@ export const useRejectAd = () => {
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: adsKeys.lists() });
       queryClient.setQueryData(adsKeys.detail(data.ad.id), data.ad);
+      // Инвалидируем статистику для немедленного обновления
+      queryClient.invalidateQueries({ queryKey: ['stats'] });
     },
   });
 };
@@ -84,6 +88,8 @@ export const useRequestChanges = () => {
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: adsKeys.lists() });
       queryClient.setQueryData(adsKeys.detail(data.ad.id), data.ad);
+      // Инвалидируем статистику для немедленного обновления
+      queryClient.invalidateQueries({ queryKey: ['stats'] });
     },
   });
 };

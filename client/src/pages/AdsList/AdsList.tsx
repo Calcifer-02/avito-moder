@@ -263,7 +263,7 @@ export const AdsList = () => {
       <HeroSection
         title="Модерация объявлений"
         subtitle="Управление и проверка объявлений платформы Авито"
-        imageSrc="public/Layer.svg"
+        imageSrc="/Layer.svg"
       />
 
       {/* Основной контент */}
